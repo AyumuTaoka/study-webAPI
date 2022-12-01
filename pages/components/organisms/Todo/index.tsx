@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 
-export function Todo() {
+export default function Todo() {
   const [inputValue, setInputValue] = useState("");
   const [todos, setTodos] = useState<Todo[]>([]);
 

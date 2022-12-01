@@ -24,7 +24,7 @@ const fetchCatImage = async () => {
   return result[0];
 };
 
-export function Cat() {
+export default function Cat() {
   const [catImageUrl, setCatImageUrl] = useState(
     "https://cdn2.thecatapi.com/images/MTgzNjYwMQ.jpg"
   );
