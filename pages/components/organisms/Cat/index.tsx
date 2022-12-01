@@ -37,7 +37,7 @@ export default function Cat() {
   return (
     <Neko>
       <h1>ねこねこねこねこ</h1>
-      <button onClick={handleClick}>ねこ〜〜〜〜〜〜〜〜</button>
+      <CatButton onClick={handleClick}>ねこ〜〜〜〜〜〜〜〜</CatButton>
 
       {/* とりあえず放置　後でstyled-component入れて解決したい */}
       <CatImg src={catImageUrl} alt="this is cat" />
@@ -47,11 +47,18 @@ export default function Cat() {
 }
 
 const Neko = styled.div`
-  width: 200px;
-  height: auto;
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+`;
+
+const CatButton = styled.button`
+  width: 20%;
+  height: 3em;
 `;
 
 const CatImg = styled.img`
-  width: 200px;
+  width: 80%;
   height: auto;
 `;

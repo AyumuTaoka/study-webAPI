@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from "react";
+import styled from "styled-components";
 
 export default function Todo() {
   const [inputValue, setInputValue] = useState("");
@@ -55,7 +56,7 @@ export default function Todo() {
   };
 
   return (
-    <div>
+    <TodoWrapper>
       <h2>TODO リスト</h2>
       <form
         onSubmit={(e) => {
@@ -90,6 +91,10 @@ export default function Todo() {
           ))}
         </ul>
       </form>
-    </div>
+    </TodoWrapper>
   );
 }
+
+const TodoWrapper = styled.div`
+  width: 50%;
+`;

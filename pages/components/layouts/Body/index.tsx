@@ -1,12 +1,15 @@
-import Head from "next/head";
-import styles from "styles/Home.module.css";
 import Todo from "../../organisms/Todo";
-
+import styled from "styled-components";
+import Cat from "../../organisms/Cat";
 export default function Body() {
   return (
-    <div className={styles.container}>
-      {/* <TopSearchBar /> */}
+    <BodyWrapper>
+      <Cat />
       <Todo />
-    </div>
+    </BodyWrapper>
   );
 }
+
+const BodyWrapper = styled.div`
+  display: flex;
+`;

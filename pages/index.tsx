@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Body from "./components/layouts/Body";
-import Cat from "./components/organisms/Cat";
+import Header from "./components/layouts/Header";
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Cat />
+        <Header />
         <Body />
       </main>
 
