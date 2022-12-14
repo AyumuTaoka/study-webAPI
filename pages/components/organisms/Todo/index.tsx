@@ -8,7 +8,6 @@ export default function Todo() {
   type Todo = {
     inputValue: string;
     id: number;
-    checked: boolean;
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -22,7 +21,6 @@ export default function Todo() {
     const newTodo: Todo = {
       inputValue: inputValue,
       id: todos.length,
-      checked: false,
     };
     setTodos([newTodo, ...todos]);
     setInputValue("");
@@ -32,17 +30,6 @@ export default function Todo() {
     const newTodos = todos.map((todo) => {
       if (todo.id === id) {
         todo.inputValue = inputValue;
-      }
-      return todo;
-    });
-
-    setTodos(newTodos);
-  };
-
-  const handleChecked = (id: number, checked: boolean) => {
-    const newTodos = todos.map((todo) => {
-      if (todo.id === id) {
-        todo.checked = !checked;
       }
       return todo;
     });
@@ -80,11 +67,6 @@ export default function Todo() {
                 onChange={(e) => {
                   handleEdit(todo.id, e.target.value);
                 }}
-                disabled={todo.checked}
-              />
-              <input
-                type="checkbox"
-                onChange={(e) => handleChecked(todo.id, e.target.checked)}
               />
               <button onClick={() => handleDelete(todo.id)}>消去</button>
             </li>

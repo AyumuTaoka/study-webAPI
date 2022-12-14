@@ -1,47 +1,41 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-interface CatCategory {
-  id: number;
-  name: string;
-}
-
-interface SearchCatImage {
-  breeds: string[];
-  categories: CatCategory[];
-  id: string;
-  url: string;
-  width: number;
-  height: number;
-}
-
-type SearchCatImageResponse = SearchCatImage[];
-
-const fetchCatImage = async () => {
-  const res = await fetch("https://api.thecatapi.com/v1/images/search");
-  const result = (await res.json()) as SearchCatImageResponse;
-  console.log(result[0]);
-  return result[0];
-};
-
 export default function Cat() {
-  const [catImageUrl, setCatImageUrl] = useState(
-    "https://cdn2.thecatapi.com/images/MTgzNjYwMQ.jpg"
-  );
+  const [catImageUrl, setCatImageUrl] = useState("https://cataas.com/c");
+  const [btnTxt, setBtnTxt] = useState("作業開始猫");
 
   const handleClick = async () => {
-    const image = await fetchCatImage();
-    setCatImageUrl(image.url);
+    handleBtnTxt();
+    handleCatImg();
+  };
+
+  const handleCatImg = async () => {
+    if (catImageUrl == "https://cataas.com/c/gif") {
+      setCatImageUrl("https://cataas.com/c");
+    } else {
+      setCatImageUrl("https://cataas.com/c/gif");
+    }
+  };
+
+  const handleBtnTxt = () => {
+    if (catImageUrl == "https://cataas.com/c") {
+      console.log("start");
+      setBtnTxt("作業中断猫");
+    } else {
+      console.log("stop");
+      setBtnTxt("作業開始猫");
+    }
   };
 
   return (
     <Neko>
       <h1>ねこねこねこねこ</h1>
-      <CatButton onClick={handleClick}>ねこ〜〜〜〜〜〜〜〜</CatButton>
+      <CatButton onClick={handleClick}>{btnTxt}</CatButton>
 
-      {/* とりあえず放置　後でstyled-component入れて解決したい */}
-      <CatImg src={catImageUrl} alt="this is cat" />
+      {/* とりあえず放置　imgで代用　後でstyled-component入れて解決したい */}
       {/* <Image src={catImageUrl} alt="this is cat" layout="fill" /> */}
+      <CatImg src={catImageUrl} alt="this is cat" />
     </Neko>
   );
 }
