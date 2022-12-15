@@ -35,7 +35,7 @@ export default function Cat() {
   // DOMを返す
   return (
     <Neko>
-      <h1>ねこねこねこねこ</h1>
+      <h1>ねこを見る</h1>
       <CatButton onClick={handleClick}>{btnTxt}</CatButton>
 
       {/* とりあえず放置　imgで代用　後でstyled-component入れて解決したい */}
