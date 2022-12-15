@@ -2,14 +2,17 @@ import { useState } from "react";
 import styled from "styled-components";
 
 export default function Cat() {
+  // レンダリングが最小限となるようにuseStateで定義している
   const [catImageUrl, setCatImageUrl] = useState("https://cataas.com/c");
   const [btnTxt, setBtnTxt] = useState("作業開始猫");
 
+  // ボタンクリック時に呼び出される関数
   const handleClick = async () => {
     handleBtnTxt();
     handleCatImg();
   };
 
+  // cataasAPIから非同期でURLを持ってきている
   const handleCatImg = async () => {
     if (catImageUrl == "https://cataas.com/c/gif") {
       setCatImageUrl("https://cataas.com/c");
@@ -18,6 +21,7 @@ export default function Cat() {
     }
   };
 
+  // 静止画かgif画像かでボタンの表示を変えている
   const handleBtnTxt = () => {
     if (catImageUrl == "https://cataas.com/c") {
       console.log("start");
@@ -28,6 +32,7 @@ export default function Cat() {
     }
   };
 
+  // DOMを返す
   return (
     <Neko>
       <h1>ねこねこねこねこ</h1>
@@ -40,6 +45,7 @@ export default function Cat() {
   );
 }
 
+// 以下styled-componentによるスタイルの指定
 const Neko = styled.div`
   width: 50%;
   margin: 0 auto;
