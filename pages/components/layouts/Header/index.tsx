@@ -3,7 +3,7 @@ import styled from "styled-components";
 export default function Header() {
   return (
     <HeaderWrapper>
-      <NekoTitle>🐈ねこ🐈‍⬛</NekoTitle>
+      <NekoTitle>🐈タスク管理猫🐈‍⬛</NekoTitle>
     </HeaderWrapper>
   );
 }
